@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="pcompone_1453Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="pcompone_1453ModelStoreContainer">
+          <EntitySet Name="Dilek&amp;Sikayet" EntityType="pcompone_1453Model.Store.Dilek&amp;Sikayet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Hit" EntityType="pcompone_1453Model.Store.Hit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Kategori" EntityType="pcompone_1453Model.Store.Kategori" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Kullanici" EntityType="pcompone_1453Model.Store.Kullanici" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Markalar" EntityType="pcompone_1453Model.Store.Markalar" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Urunler" EntityType="pcompone_1453Model.Store.Urunler" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Yorumlar" EntityType="pcompone_1453Model.Store.Yorumlar" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Ziyaretci" EntityType="pcompone_1453Model.Store.Ziyaretci" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FavoriUrunler" EntityType="pcompone_1453Model.Store.FavoriUrunler" store:Type="Tables" Schema="pcompone_pcompone" />
+          <EntitySet Name="SatilanUrunler" EntityType="pcompone_1453Model.Store.SatilanUrunler" store:Type="Tables" Schema="pcompone_pcompone" />
+        </EntityContainer>
+        <EntityType Name="Dilek&amp;Sikayet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="isim" Type="nvarchar(max)" />
+          <Property Name="konu" Type="nvarchar(max)" />
+          <Property Name="mesaj" Type="nvarchar(max)" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="yazılmatarihi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Hit">
+          <Key>
+            <PropertyRef Name="hit_id" />
+          </Key>
+          <Property Name="hit_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="site_hit" Type="int" />
+        </EntityType>
+        <EntityType Name="Kategori">
+          <Key>
+            <PropertyRef Name="kategori_id" />
+          </Key>
+          <Property Name="kategori_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="kategoriismi" Type="nvarchar(max)" />
+          <Property Name="MainKategori" Type="int" />
+          <Property Name="AnaKategorisi" Type="int" />
+          <Property Name="urun_markaid" Type="int" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="kullanici_id" />
+          </Key>
+          <Property Name="kullanici_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="adi" Type="nvarchar(max)" />
+          <Property Name="soyadi" Type="nvarchar(max)" />
+          <Property Name="kullaniciadi" Type="nvarchar(max)" />
+          <Property Name="sifre" Type="nvarchar(max)" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="dogumtarihi" Type="nvarchar(max)" />
+          <Property Name="dogumyeri" Type="nvarchar(max)" />
+          <Property Name="sehir" Type="nvarchar(max)" />
+          <Property Name="adres" Type="nvarchar(max)" />
+          <Property Name="ceptelefonu" Type="nvarchar(max)" />
+          <Property Name="kisi_soru" Type="nvarchar(max)" />
+          <Property Name="kisi_cevap" Type="nvarchar(max)" />
+          <Property Name="aktiflik" Type="int" />
+          <Property Name="durum" Type="int" />
+          <Property Name="kullanicikimligi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Markalar">
+          <Key>
+            <PropertyRef Name="marka_id" />
+          </Key>
+          <Property Name="marka_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="markaismi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Urunler">
+          <Key>
+            <PropertyRef Name="urun_id" />
+          </Key>
+          <Property Name="urun_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="urunismi" Type="nvarchar(max)" />
+          <Property Name="fiyat" Type="int" />
+          <Property Name="resim" Type="nvarchar(max)" />
+          <Property Name="durum" Type="nvarchar(max)" />
+          <Property Name="ozellikler" Type="nvarchar(max)" />
+          <Property Name="garantisuresi" Type="nvarchar(max)" />
+          <Property Name="urunturu" Type="nvarchar(max)" />
+          <Property Name="urunKategoriID" Type="int" Nullable="false" />
+          <Property Name="eklenmetarihi" Type="datetime" />
+          <Property Name="urun_markaid" Type="int" Nullable="false" />
+          <Property Name="urun_markaismi" Type="nvarchar(max)" />
+          <Property Name="urunsatissayisi" Type="int" Nullable="false" />
+          <Property Name="hit" Type="int" />
+          <Property Name="urungoruntulenmesayisi" Type="int" />
+          <Property Name="urun_adet" Type="int" />
+          <Property Name="toplamfiyat" Type="int" />
+          <Property Name="StokAdedi" Type="int" />
+        </EntityType>
+        <EntityType Name="Yorumlar">
+          <Key>
+            <PropertyRef Name="yorum_id" />
+          </Key>
+          <Property Name="yorum_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="kisi_adi" Type="nvarchar(max)" />
+          <Property Name="yorum" Type="nvarchar(max)" />
+          <Property Name="tarih" Type="datetime" />
+          <Property Name="urun_id" Type="int" />
+          <Property Name="onay" Type="int" />
+        </EntityType>
+        <EntityType Name="Ziyaretci">
+          <Key>
+            <PropertyRef Name="ziyaretci_id" />
+          </Key>
+          <Property Name="ziyaretci_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ipadress" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="FavoriUrunler">
+          <Key>
+            <PropertyRef Name="favoriurunID" />
+          </Key>
+          <Property Name="favoriurunID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="urunID" Type="int" Nullable="false" />
+          <Property Name="kullaniciID" Type="int" Nullable="false" />
+          <Property Name="datetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SatilanUrunler">
+          <Key>
+            <PropertyRef Name="satilanurunID" />
+          </Key>
+          <Property Name="satilanurunID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="urunID" Type="int" Nullable="false" />
+          <Property Name="kullaniciID" Type="int" Nullable="false" />
+          <Property Name="datetime" Type="datetime" />
+          <Property Name="urunadedi" Type="int" />
+          <Property Name="toplamfiyat" Type="int" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="pcompone_1453Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="pcompone_1453Entities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dilek_Sikayet" EntityType="pcompone_1453Model.Dilek_Sikayet" />
+          <EntitySet Name="Hit" EntityType="pcompone_1453Model.Hit" />
+          <EntitySet Name="Kategori" EntityType="pcompone_1453Model.Kategori" />
+          <EntitySet Name="Kullanici" EntityType="pcompone_1453Model.Kullanici" />
+          <EntitySet Name="Markalar" EntityType="pcompone_1453Model.Markalar" />
+          <EntitySet Name="Urunler" EntityType="pcompone_1453Model.Urunler" />
+          <EntitySet Name="Yorumlar" EntityType="pcompone_1453Model.Yorumlar" />
+          <EntitySet Name="Ziyaretci" EntityType="pcompone_1453Model.Ziyaretci" />
+          <EntitySet Name="FavoriUrunler" EntityType="pcompone_1453Model.FavoriUrunler" />
+          <EntitySet Name="SatilanUrunler" EntityType="pcompone_1453Model.SatilanUrunler" />
+        </EntityContainer>
+        <EntityType Name="Dilek_Sikayet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="isim" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="konu" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="mesaj" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="yazılmatarihi" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="Hit">
+          <Key>
+            <PropertyRef Name="hit_id" />
+          </Key>
+          <Property Name="hit_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="site_hit" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Kategori">
+          <Key>
+            <PropertyRef Name="kategori_id" />
+          </Key>
+          <Property Name="kategori_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kategoriismi" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MainKategori" Type="Int32" />
+          <Property Name="AnaKategorisi" Type="Int32" />
+          <Property Name="urun_markaid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="kullanici_id" />
+          </Key>
+          <Property Name="kullanici_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adi" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="soyadi" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="kullaniciadi" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="sifre" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="dogumtarihi" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="dogumyeri" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="sehir" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="adres" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ceptelefonu" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="kisi_soru" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="kisi_cevap" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="aktiflik" Type="Int32" />
+          <Property Name="durum" Type="Int32" />
+          <Property Name="kullanicikimligi" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Markalar">
+          <Key>
+            <PropertyRef Name="marka_id" />
+          </Key>
+          <Property Name="marka_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="markaismi" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Urunler">
+          <Key>
+            <PropertyRef Name="urun_id" />
+          </Key>
+          <Property Name="urun_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="urunismi" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="fiyat" Type="Int32" />
+          <Property Name="resim" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="durum" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ozellikler" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="garantisuresi" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="urunturu" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="urunKategoriID" Type="Int32" Nullable="false" />
+          <Property Name="eklenmetarihi" Type="DateTime" />
+          <Property Name="urun_markaid" Type="Int32" Nullable="false" />
+          <Property Name="urun_markaismi" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="urunsatissayisi" Type="Int32" Nullable="false" />
+          <Property Name="hit" Type="Int32" />
+          <Property Name="urungoruntulenmesayisi" Type="Int32" />
+          <Property Name="urun_adet" Type="Int32" />
+          <Property Name="toplamfiyat" Type="Int32" />
+          <Property Name="StokAdedi" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Yorumlar">
+          <Key>
+            <PropertyRef Name="yorum_id" />
+          </Key>
+          <Property Name="yorum_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kisi_adi" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="yorum" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="tarih" Type="DateTime" />
+          <Property Name="urun_id" Type="Int32" />
+          <Property Name="onay" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Ziyaretci">
+          <Key>
+            <PropertyRef Name="ziyaretci_id" />
+          </Key>
+          <Property Name="ziyaretci_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ipadress" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="FavoriUrunler">
+          <Key>
+            <PropertyRef Name="favoriurunID" />
+          </Key>
+          <Property Name="favoriurunID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="urunID" Type="Int32" Nullable="false" />
+          <Property Name="kullaniciID" Type="Int32" Nullable="false" />
+          <Property Name="datetime" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SatilanUrunler">
+          <Key>
+            <PropertyRef Name="satilanurunID" />
+          </Key>
+          <Property Name="satilanurunID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="urunID" Type="Int32" Nullable="false" />
+          <Property Name="kullaniciID" Type="Int32" Nullable="false" />
+          <Property Name="datetime" Type="DateTime" />
+          <Property Name="urunadedi" Type="Int32" />
+          <Property Name="toplamfiyat" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="pcompone_1453ModelStoreContainer" CdmEntityContainer="pcompone_1453Entities3">
+          <EntitySetMapping Name="Dilek_Sikayet">
+            <EntityTypeMapping TypeName="pcompone_1453Model.Dilek_Sikayet">
+              <MappingFragment StoreEntitySet="Dilek&amp;Sikayet">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="isim" ColumnName="isim" />
+                <ScalarProperty Name="konu" ColumnName="konu" />
+                <ScalarProperty Name="mesaj" ColumnName="mesaj" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="yazılmatarihi" ColumnName="yazılmatarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hit">
+            <EntityTypeMapping TypeName="pcompone_1453Model.Hit">
+              <MappingFragment StoreEntitySet="Hit">
+                <ScalarProperty Name="hit_id" ColumnName="hit_id" />
+                <ScalarProperty Name="site_hit" ColumnName="site_hit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategori">
+            <EntityTypeMapping TypeName="pcompone_1453Model.Kategori">
+              <MappingFragment StoreEntitySet="Kategori">
+                <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+                <ScalarProperty Name="kategoriismi" ColumnName="kategoriismi" />
+                <ScalarProperty Name="MainKategori" ColumnName="MainKategori" />
+                <ScalarProperty Name="AnaKategorisi" ColumnName="AnaKategorisi" />
+                <ScalarProperty Name="urun_markaid" ColumnName="urun_markaid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanici">
+            <EntityTypeMapping TypeName="pcompone_1453Model.Kullanici">
+              <MappingFragment StoreEntitySet="Kullanici">
+                <ScalarProperty Name="kullanici_id" ColumnName="kullanici_id" />
+                <ScalarProperty Name="adi" ColumnName="adi" />
+                <ScalarProperty Name="soyadi" ColumnName="soyadi" />
+                <ScalarProperty Name="kullaniciadi" ColumnName="kullaniciadi" />
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="dogumtarihi" ColumnName="dogumtarihi" />
+                <ScalarProperty Name="dogumyeri" ColumnName="dogumyeri" />
+                <ScalarProperty Name="sehir" ColumnName="sehir" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+                <ScalarProperty Name="ceptelefonu" ColumnName="ceptelefonu" />
+                <ScalarProperty Name="kisi_soru" ColumnName="kisi_soru" />
+                <ScalarProperty Name="kisi_cevap" ColumnName="kisi_cevap" />
+                <ScalarProperty Name="aktiflik" ColumnName="aktiflik" />
+                <ScalarProperty Name="durum" ColumnName="durum" />
+                <ScalarProperty Name="kullanicikimligi" ColumnName="kullanicikimligi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Markalar">
+            <EntityTypeMapping TypeName="pcompone_1453Model.Markalar">
+              <MappingFragment StoreEntitySet="Markalar">
+                <ScalarProperty Name="marka_id" ColumnName="marka_id" />
+                <ScalarProperty Name="markaismi" ColumnName="markaismi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Urunler">
+            <EntityTypeMapping TypeName="pcompone_1453Model.Urunler">
+              <MappingFragment StoreEntitySet="Urunler">
+                <ScalarProperty Name="urun_id" ColumnName="urun_id" />
+                <ScalarProperty Name="urunismi" ColumnName="urunismi" />
+                <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+                <ScalarProperty Name="resim" ColumnName="resim" />
+                <ScalarProperty Name="durum" ColumnName="durum" />
+                <ScalarProperty Name="ozellikler" ColumnName="ozellikler" />
+                <ScalarProperty Name="garantisuresi" ColumnName="garantisuresi" />
+                <ScalarProperty Name="urunturu" ColumnName="urunturu" />
+                <ScalarProperty Name="urunKategoriID" ColumnName="urunKategoriID" />
+                <ScalarProperty Name="eklenmetarihi" ColumnName="eklenmetarihi" />
+                <ScalarProperty Name="urun_markaid" ColumnName="urun_markaid" />
+                <ScalarProperty Name="urun_markaismi" ColumnName="urun_markaismi" />
+                <ScalarProperty Name="urunsatissayisi" ColumnName="urunsatissayisi" />
+                <ScalarProperty Name="hit" ColumnName="hit" />
+                <ScalarProperty Name="urungoruntulenmesayisi" ColumnName="urungoruntulenmesayisi" />
+                <ScalarProperty Name="urun_adet" ColumnName="urun_adet" />
+                <ScalarProperty Name="toplamfiyat" ColumnName="toplamfiyat" />
+                <ScalarProperty Name="StokAdedi" ColumnName="StokAdedi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yorumlar">
+            <EntityTypeMapping TypeName="pcompone_1453Model.Yorumlar">
+              <MappingFragment StoreEntitySet="Yorumlar">
+                <ScalarProperty Name="yorum_id" ColumnName="yorum_id" />
+                <ScalarProperty Name="kisi_adi" ColumnName="kisi_adi" />
+                <ScalarProperty Name="yorum" ColumnName="yorum" />
+                <ScalarProperty Name="tarih" ColumnName="tarih" />
+                <ScalarProperty Name="urun_id" ColumnName="urun_id" />
+                <ScalarProperty Name="onay" ColumnName="onay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ziyaretci">
+            <EntityTypeMapping TypeName="pcompone_1453Model.Ziyaretci">
+              <MappingFragment StoreEntitySet="Ziyaretci">
+                <ScalarProperty Name="ziyaretci_id" ColumnName="ziyaretci_id" />
+                <ScalarProperty Name="Ipadress" ColumnName="Ipadress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FavoriUrunler">
+            <EntityTypeMapping TypeName="pcompone_1453Model.FavoriUrunler">
+              <MappingFragment StoreEntitySet="FavoriUrunler">
+                <ScalarProperty Name="favoriurunID" ColumnName="favoriurunID" />
+                <ScalarProperty Name="urunID" ColumnName="urunID" />
+                <ScalarProperty Name="kullaniciID" ColumnName="kullaniciID" />
+                <ScalarProperty Name="datetime" ColumnName="datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SatilanUrunler">
+            <EntityTypeMapping TypeName="pcompone_1453Model.SatilanUrunler">
+              <MappingFragment StoreEntitySet="SatilanUrunler">
+                <ScalarProperty Name="satilanurunID" ColumnName="satilanurunID" />
+                <ScalarProperty Name="urunID" ColumnName="urunID" />
+                <ScalarProperty Name="kullaniciID" ColumnName="kullaniciID" />
+                <ScalarProperty Name="datetime" ColumnName="datetime" />
+                <ScalarProperty Name="urunadedi" ColumnName="urunadedi" />
+                <ScalarProperty Name="toplamfiyat" ColumnName="toplamfiyat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model">
+        <EntityTypeShape EntityType="pcompone_1453Model.Dilek_Sikayet" Width="1.5" PointX="0.75" PointY="0.75" Height="2.172587890625" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcompone_1453Model.Hit" Width="1.5" PointX="2.75" PointY="0.75" Height="1.4033821614583335" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcompone_1453Model.Kategori" Width="1.5" PointX="0.75" PointY="3.75" Height="1.9802864583333322" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcompone_1453Model.Kullanici" Width="1.5" PointX="2.75" PointY="3.75" Height="4.0956022135416656" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcompone_1453Model.Markalar" Width="1.5" PointX="4.75" PointY="0.75" Height="1.4033821614583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcompone_1453Model.Urunler" Width="1.5" PointX="4.75" PointY="3.75" Height="4.480205078125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcompone_1453Model.Yorumlar" Width="1.5" PointX="6.75" PointY="0.75" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcompone_1453Model.Ziyaretci" Width="1.5" PointX="6.75" PointY="3.75" Height="1.4033821614583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcompone_1453Model.FavoriUrunler" Width="1.5" PointX="6.75" PointY="6.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="pcompone_1453Model.SatilanUrunler" Width="1.5" PointX="8.75" PointY="0.75" Height="2.1725878906249996" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
